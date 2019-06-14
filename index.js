@@ -1,8 +1,10 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
+const morgan = require("morgan");
 
 app.use(bodyParser.json());
+app.use(morgan("tiny"));
 
 let persons = [
   {
@@ -68,7 +70,7 @@ app.post("/api/persons", (req, res) => {
   }
 
   const duplicate = persons.filter(person => person.name === body.name);
-  console.log(duplicate);
+
   if (duplicate.length === 1) {
     return res.status(400).json({
       error: "name must be unique"
