@@ -1,1 +1,1 @@
-Linkki sovellukseen [Heroku App](https://morning-river-82432.herokuapp.com/)
+Linkki sovellukseen [Puhelinluettelo](https://morning-river-82432.herokuapp.com/)
