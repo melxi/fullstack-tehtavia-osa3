@@ -95,6 +95,6 @@ app.post("/api/persons", (req, res) => {
   persons = persons.concat(person);
   res.json(person);
 });
-
+debugger;
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

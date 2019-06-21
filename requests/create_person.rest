@@ -1,4 +1,4 @@
-post https://morning-river-82432.herokuapp.com/api/persons || http://localhost:3001/api/persons/
+post https://morning-river-82432.herokuapp.com/api/persons
 Content-Type: application/json
 
 {
