@@ -41,8 +41,8 @@ let persons = [
 ];
 
 app.get("/api/persons", (req, res) => {
-  Person.find({}).then(people => {
-    res.json(people)
+  Person.find({}).then(persons => {
+    res.json(persons)
   })
 });
 
@@ -91,14 +91,14 @@ app.post("/api/persons", (req, res) => {
     });
   }
 
-  const person = {
+  const person = new Person({
     name: body.name,
-    number: body.number,
-    id: Math.floor(Math.random() * 1000000)
-  };
+    number: body.number
+  });
 
-  persons = persons.concat(person);
-  res.json(person);
+  person.save().then(savedPerson => {
+    res.json(savedPerson.toJSON())
+  });
 });
 
 const PORT = process.env.PORT || 3001;
