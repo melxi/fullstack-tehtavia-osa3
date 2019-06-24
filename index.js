@@ -42,17 +42,20 @@ let persons = [
 
 app.get("/api/persons", (req, res) => {
   Person.find({}).then(persons => {
+    console.log(persons);
     res.json(persons)
   })
 });
 
 app.get("/info", (req, res) => {
-  res.send(
-    `<div> 
-      <p>Phonebook has info for ${persons.length} people</p>
-      <p>${new Date()}</p>
-    </div>`
-  );
+  Person.find({}).then(persons => {    
+    res.send(
+      `<div> 
+        <p>Phonebook has info for ${persons.length} people</p>
+        <p>${new Date()}</p>
+      </div>`
+    );
+  });
 });
 
 app.get("/api/persons/:id", (req, res, next) => {
@@ -103,7 +106,6 @@ app.post("/api/persons", (req, res) => {
 
 app.put('/api/persons/:id', (req, res, next) => {
   const body = req.body;
-  console.log(body);
   
   const person = {
     name: body.name,
